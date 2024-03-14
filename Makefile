@@ -6,29 +6,11 @@ clean:
 	find . -name '*~' -delete
 	find . -name '.coverage.*' -delete
 
-PYTEST_CMD := poetry run pytest -s -vv gridstatusio/ -n auto
-NOT_SLOW := -m "not slow"
+PYTEST_CMD := poetry run pytest -s -vv gridstatusio/ -n auto --reruns 5 --reruns-delay 3
 
 .PHONY: test
 test:
-	$(PYTEST_CMD) $(NOT_SLOW) --reruns 5 --reruns-delay 3
-
-.PHONY: test-slow
-test-slow:
-	$(PYTEST_CMD) -m slow
-
-.PHONY: installdeps-dev
-installdeps-dev:
-	poetry install --all-extras
-	poetry run pre-commit install
-
-.PHONY: installdeps-test
-installdeps-test:
-	poetry install --all-extras
-
-.PHONY: installdeps-docs
-installdeps-docs:
-	poetry install --all-extras
+	$(PYTEST_CMD)
 
 .PHONY: lint
 lint:
