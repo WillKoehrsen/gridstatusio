@@ -221,6 +221,8 @@ class GridStatusClient:
         dataset,
         start=None,
         end=None,
+        time=None,
+        time_comparison=None,
         columns=None,
         filter_column=None,
         filter_value=None,
@@ -246,6 +248,12 @@ class GridStatusClient:
 
             end (str): The end time of the data to fetch. If not provided,
                 defaults to the latest available time for the dataset.
+
+            time (str): The time to filter on. Cannot be used with start or end. Works
+            in conjunction with time_comparison
+
+            time_comparison(str): The comparison operator for use with time. Options:
+
 
             columns (list): The columns to fetch. If not provided,
                 defaults to all available columns.
