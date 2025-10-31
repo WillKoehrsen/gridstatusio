@@ -37,14 +37,13 @@ client = GridStatusClient()
 data = client.get_dataset('ercot_fuel_mix', limit=100, start='2025-01-01', end='2025-01-02')
 ```
 
-* To see all available datasets, use `client.list_datasets()` or check out the complete Grid Status catalog at https://www.gridstatus.io/datasets
+* To see all available datasets check out [the complete Grid Status catalog](https://www.gridstatus.io/datasets) or use `client.list_datasets()`
 
 * **NOTE**: the Grid Status API has a 1 million rows per month limit on the free plan. This limit is _very_ easy to exceed when querying data, especially real time prices.
   * Make sure to add `limit` to all of your `get_dataset` calls to avoid quickly exceeding the limit.
 
 
-* For more detailed examples, check out this notebook: [Getting Started](Examples/1.%20Getting%20Started.ipynb)
-* Other notebooks in the [Examples](Examples) directory:
+* For more detailed examples, check out this notebook: [Getting Started](Examples/1.%20Getting%20Started.ipynb) or other notebooks in the [Examples](Examples) directory:
   - [Finding Hubs and Zones in Pricing Data](Examples/2.%20ISO%20Hubs.ipynb)
   - [ERCOT Pricing Data](Examples/3.%20ERCOT%20Pricing%20Data.ipynb)
   - [CAISO April Net Load Analysis](Examples/4.%20CAISO%20April%20Net%20Load.ipynb)
